@@ -10,7 +10,7 @@
  */
 
 
-#ifndef  UTIL_H
+#ifndef UTIL_H
 #define UTIL_H
 
 #include <stdio.h>
@@ -18,6 +18,12 @@
 #include <assert.h>
 #include <stdint.h>
 #include <stdlib.h>
+
+#ifdef TEST
+    #define WEAK __attr__((weak))
+#else
+    #define WEAK
+#endif
 
 /**
  * @def ERROR

@@ -414,6 +414,7 @@ int ExampleFree(Example * this)
 
 /* -------------- BOITE AUX LETTRES ------------- */
 
+WEAK
 static void MailboxInit(Example * this)
 {
     int err = sprintf(this->queueName, NAME_MQ_BOX, exampleCounter);

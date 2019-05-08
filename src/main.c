@@ -20,21 +20,7 @@
 int main (void)
 {
 
-    Example * example = ExampleNew();
-    ExampleStart(example);
-    sleep(1);
-    ExampleEventOne(example, 12);
-    sleep(1);
-    ExampleEventOne(example, 14);
-    sleep(1);
-    ExampleEventTwo(example, 1);
-    sleep(1);
-    ExampleEventTwo(example, 10);
-    sleep(1);
-
-    ExampleStop(example);
-    sleep(1);
-    ExampleFree(example);
+    ExampleNew();
 
     printf("Hello world !\n");
     return 0;

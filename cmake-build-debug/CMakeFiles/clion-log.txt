@@ -1,4 +1,4 @@
-/snap/clion/69/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux
+/snap/clion/69/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C
 -- Configuring done
 -- Generating done
--- Build files have been written to: /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug
+-- Build files have been written to: /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug

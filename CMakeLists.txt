@@ -9,7 +9,8 @@ project(${PROSE_PROJECT_NAME} C)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 
 # Coverage
-include(CodeCoverage)
+set(CMAKE_C_FLAGS "-g -O0 -Wall -W --coverage")
+set(CTEST_COVERAGE_EXTRA_FLAGS "-b")
 
 # CTest
 enable_testing()
@@ -17,7 +18,7 @@ include(CTest)
 
 # Include every src files
 file(GLOB_RECURSE everyFile "src/*.c" "src/*.h")
-add_executable(${PROSE_PROJECT_NAME} ${everyFile} src/main.c)
+add_executable(${PROSE_PROJECT_NAME} ${everyFile})
 
 # CMocka lib
 set(CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/test/cmocka")
@@ -34,6 +35,9 @@ set(GLOBAL_LIBS pthread rt)
 list(APPEND testsNames mainExampleTestMocked)
 list(APPEND testsFlags "-Wl,--wrap=MailboxInit")
 
+list(APPEND testsNames mainExampleTest)
+list(APPEND testsFlags "")
+
 list(LENGTH testsNames testsCount)
 math(EXPR testsCount "${testsCount} - 1")
 
@@ -46,7 +50,8 @@ foreach(i RANGE ${testsCount})
     target_link_libraries(
         ${testName}
         ${LIB_CMOCKA}
-        -fprofile-arcs -ftest-coverage
+        --coverage
+        -DTEST
         ${GLOBAL_LIBS}
     )
 
@@ -63,4 +68,3 @@ foreach(i RANGE ${testsCount})
 endforeach()
 
 target_link_libraries(${PROSE_PROJECT_NAME} ${GLOBAL_LIBS})
-setup_target_for_coverage(coverage ctest coverage)

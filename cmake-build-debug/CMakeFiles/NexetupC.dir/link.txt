@@ -1,1 +1,1 @@
-/usr/bin/cc -g -O0 -fprofile-arcs -ftest-coverage -g   CMakeFiles/NexetupC.dir/src/main.c.o  -o NexetupC 
+/usr/bin/cc -g -O0 -Wall -W --coverage -g   CMakeFiles/NexetupC.dir/src/example/example.c.o CMakeFiles/NexetupC.dir/src/main.c.o  -o NexetupC -lpthread -lrt 

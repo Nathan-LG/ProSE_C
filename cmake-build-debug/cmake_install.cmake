@@ -1,4 +1,4 @@
-# Install script for directory: /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux
+# Install script for directory: /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

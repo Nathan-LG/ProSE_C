@@ -15,19 +15,14 @@ static int tearDown(void **state)
     return 0;
 }
 
-void __wrap_MailboxInit(Example * this) {
-    function_called();
-}
-
-static void testExampleNewCallsMailboxInit(void **state)
+static void testFunctionTropBien0(void **state)
 {
-    expect_function_call(MailboxInit);
-    ExampleNew();
+    assert_int_equal(0, 0);
 }
 
 static const struct CMUnitTest tests[] =
 {
-    cmocka_unit_test(testExampleNewCallsMailboxInit)
+    cmocka_unit_test(testFunctionTropBien0)
 };
 
 int exampleTestMockedRunTests()

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/NexetupC.dir/src/example/example.c.o"
   "CMakeFiles/NexetupC.dir/src/main.c.o"
   "NexetupC.pdb"
   "NexetupC"

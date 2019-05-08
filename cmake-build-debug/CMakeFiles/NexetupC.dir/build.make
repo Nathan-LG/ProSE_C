@@ -43,10 +43,10 @@ RM = /snap/clion/69/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux
+CMAKE_SOURCE_DIR = /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug
+CMAKE_BINARY_DIR = /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/NexetupC.dir/depend.make
@@ -57,30 +57,45 @@ include CMakeFiles/NexetupC.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/NexetupC.dir/flags.make
 
+CMakeFiles/NexetupC.dir/src/example/example.c.o: CMakeFiles/NexetupC.dir/flags.make
+CMakeFiles/NexetupC.dir/src/example/example.c.o: ../src/example/example.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/NexetupC.dir/src/example/example.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/NexetupC.dir/src/example/example.c.o   -c /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/src/example/example.c
+
+CMakeFiles/NexetupC.dir/src/example/example.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/NexetupC.dir/src/example/example.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/src/example/example.c > CMakeFiles/NexetupC.dir/src/example/example.c.i
+
+CMakeFiles/NexetupC.dir/src/example/example.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/NexetupC.dir/src/example/example.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/src/example/example.c -o CMakeFiles/NexetupC.dir/src/example/example.c.s
+
 CMakeFiles/NexetupC.dir/src/main.c.o: CMakeFiles/NexetupC.dir/flags.make
 CMakeFiles/NexetupC.dir/src/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/NexetupC.dir/src/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/NexetupC.dir/src/main.c.o   -c /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/NexetupC.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/NexetupC.dir/src/main.c.o   -c /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/src/main.c
 
 CMakeFiles/NexetupC.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/NexetupC.dir/src/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/src/main.c > CMakeFiles/NexetupC.dir/src/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/src/main.c > CMakeFiles/NexetupC.dir/src/main.c.i
 
 CMakeFiles/NexetupC.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/NexetupC.dir/src/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/src/main.c -o CMakeFiles/NexetupC.dir/src/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/src/main.c -o CMakeFiles/NexetupC.dir/src/main.c.s
 
 # Object files for target NexetupC
 NexetupC_OBJECTS = \
+"CMakeFiles/NexetupC.dir/src/example/example.c.o" \
 "CMakeFiles/NexetupC.dir/src/main.c.o"
 
 # External object files for target NexetupC
 NexetupC_EXTERNAL_OBJECTS =
 
+NexetupC: CMakeFiles/NexetupC.dir/src/example/example.c.o
 NexetupC: CMakeFiles/NexetupC.dir/src/main.c.o
 NexetupC: CMakeFiles/NexetupC.dir/build.make
 NexetupC: CMakeFiles/NexetupC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable NexetupC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable NexetupC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NexetupC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +108,6 @@ CMakeFiles/NexetupC.dir/clean:
 .PHONY : CMakeFiles/NexetupC.dir/clean
 
 CMakeFiles/NexetupC.dir/depend:
-	cd /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug /files/Files/Cours/ESEO/I2/ProSE/SVN/se2020-equipeb2/code/production/linux/cmake-build-debug/CMakeFiles/NexetupC.dir/DependInfo.cmake --color=$(COLOR)
+	cd /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug /files/Files/Cours/ESEO/I2/ProSE/C/ProSE_C/cmake-build-debug/CMakeFiles/NexetupC.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NexetupC.dir/depend
 
