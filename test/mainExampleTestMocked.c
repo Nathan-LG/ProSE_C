@@ -5,12 +5,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include "cmocka/cmocka.h"
+#include "example/exampleTestMocked.c"
 
 #define NB_SUITE_TESTS 1
 
-extern int packageTestRunTests(void);
-
-int (* suite_tests[])(void) = {packageTestRunTests};
+int (* suite_tests[])(void) = {exampleTestMockedRunTests};
 
 static void testRunner();
 

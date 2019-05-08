@@ -1,39 +1,66 @@
 cmake_minimum_required(VERSION 3.9)
 set(CMAKE_C_STANDARD 99)
 
-# Project name
+# Projects
 set(PROSE_PROJECT_NAME NexetupC)
-
-# Define projects
 project(${PROSE_PROJECT_NAME} C)
-project(${PROSE_PROJECT_NAME}Test C)
 
 # Module path (usefull for finding libs)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeModules)
 
 # Coverage
 include(CodeCoverage)
-SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-SETUP_TARGET_FOR_COVERAGE(coverage ${PROSE_PROJECT_NAME}Test coverage)
+
+# CTest
+enable_testing()
+include(CTest)
 
 # Include every src files
 file(GLOB_RECURSE everyFile "src/*.c" "src/*.h")
 add_executable(${PROSE_PROJECT_NAME} ${everyFile} src/main.c)
 
-# Include every test files
-file(GLOB_RECURSE testFiles "test/*.c" "test/*.h")
-add_executable(${PROSE_PROJECT_NAME}Test ${testFiles})
-
 # CMocka lib
-SET(CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/test/cmocka")
+set(CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/test/cmocka")
 find_library(LIB_CMOCKA libCMocka NAMES CICD.so)
 
 if (NOT LIB_CMOCKA)
     message(FATAL_ERROR "library not found")
 endif()
 
-target_link_libraries(${PROSE_PROJECT_NAME}Test ${LIB_CMOCKA})
+set(GLOBAL_LIBS pthread rt)
 
-# Final includes
-target_include_directories(${PROSE_PROJECT_NAME}Test PRIVATE ${PROJECT_SOURCE_DIR}/src ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMOCKA_PUBLIC_INCLUDE_DIRS})
+# Tests
+
+list(APPEND testsNames mainExampleTestMocked)
+list(APPEND testsFlags "-Wl,--wrap=MailboxInit")
+
+list(LENGTH testsNames testsCount)
+math(EXPR testsCount "${testsCount} - 1")
+
+foreach(i RANGE ${testsCount})
+    list(GET testsNames ${i} testName)
+    list(GET testsFlags ${i} testFlags)
+
+    add_executable(${testName} test/${testName}.c)
+
+    target_link_libraries(
+        ${testName}
+        ${LIB_CMOCKA}
+        -fprofile-arcs -ftest-coverage
+        ${GLOBAL_LIBS}
+    )
+
+    if(testFlags STREQUAL "")
+    else()
+        target_link_libraries(
+            ${testName}
+            ${testFlags}
+        )
+    endif()
+
+    add_test(${testName} ${testName})
+
+endforeach()
+
+target_link_libraries(${PROSE_PROJECT_NAME} ${GLOBAL_LIBS})
+setup_target_for_coverage(coverage ctest coverage)
